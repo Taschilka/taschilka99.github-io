@@ -1,0 +1,75 @@
+AddDefaultCharset windows-1251
+
+php_flag display_errors off
+
+php_value default_charset "windows-1251"
+
+DirectoryIndex index.php
+RewriteEngine On
+# Основной домен
+RewriteCond %{HTTP_HOST} ^www\.(.*) [NC]
+RewriteRule ^(.*)$ http://%1/$1 [R=301,L]
+
+
+# Главная
+RewriteRule ^index.html$ index.php [L]
+
+# Статистика
+RewriteRule ^top(/?)+$ index.php?menu=stat [L]
+
+# Правила
+RewriteRule ^soglashenie(/?)+$ index.php?menu=rules [L]
+
+# Контакты
+RewriteRule ^support(/?)+$ index.php?menu=contacts [L]
+
+# Новости
+RewriteRule ^news(/?)+$ index.php?menu=news [L]
+
+# О нас
+RewriteRule ^about(/?)+$ index.php?menu=about [L]
+
+# О нас
+RewriteRule ^faq(/?)+$ index.php?menu=faq [L]
+
+# Чат
+RewriteRule ^chat/([a-z]+)/([a-zA-Z0-9]+)(/?)+$ index.php?menu=chat&t=$1&id=$2 [L]
+
+
+# Регистрация
+RewriteRule ^signup/key/(.*)(/?)+$ index.php?menu=signup&key=$1 [L]
+RewriteRule ^register(/?)+$ index.php?menu=signup [L]
+
+# Восстановление пароля
+RewriteRule ^recovery(/?)+$ index.php?menu=recovery [L]
+
+
+
+# Аккаунт
+
+RewriteRule ^bonus(/?)+$ index.php?menu=account&sel=bonus [L]
+RewriteRule ^insert-money(/?)+$ index.php?menu=account&sel=refill [L]
+RewriteRule ^payeer-insert(/?)+$ index.php?menu=account&sel=payeer [L]
+RewriteRule ^qiwi-insert(/?)+$ index.php?menu=account&sel=insert-qiwi [L]
+RewriteRule ^yandex-insert(/?)+$ index.php?menu=account&sel=yandex [L]
+RewriteRule ^withdrawals.html/([0-9]+)(/?)+$ index.php?menu=account&sel=withdrawals&pay_id=$1 [L]
+RewriteRule ^pay-money(/?)+$ index.php?menu=account&sel=withdrawals [L]
+RewriteRule ^payeer-pay(/?)+$ index.php?menu=account&sel=payeer-pay [L]
+RewriteRule ^qiwi-pay(/?)+$ index.php?menu=account&sel=qiwi-pay [L] 
+RewriteRule ^webm(/?)+$ index.php?menu=account&sel=webm [L] 
+RewriteRule ^insertf(/?)+$ index.php?menu=account&sel=insertf [L] 
+
+RewriteRule ^yandex-pay(/?)+$ index.php?menu=account&sel=yandex-pay [L]
+RewriteRule ^exchange(/?)+$ index.php?menu=account&sel=exchange [L]
+RewriteRule ^cards(/?)+$ index.php?menu=account&sel=cards [L]
+RewriteRule ^trofei(/?)+$ index.php?menu=account&sel=store [L]
+RewriteRule ^parteners(/?)+$ index.php?menu=account&sel=referals [L]
+RewriteRule ^parteners2(/?)+$ index.php?menu=account&sel=referals2 [L]
+RewriteRule ^parteners3(/?)+$ index.php?menu=account&sel=referals3 [L]
+RewriteRule ^banners(/?)+$ index.php?menu=account&sel=banners [L]
+RewriteRule ^arena(/?)+$ index.php?menu=account&sel=farm [L]
+RewriteRule ^chat([a-z]+)/([a-zA-Z0-9]+)(/?)+$ index.php?menu=chat&t=$1&id=$2 [L]
+RewriteRule ^chat(/?)+$ index.php?menu=account&sel=chat [L]
+RewriteRule ^exit(/?)+$ index.php?menu=account&sel=output [L]
+RewriteRule ^user(/?)+$ index.php?menu=account [L]
+RewriteRule ^qest(/?)+$ index.php?menu=qest [L]
